@@ -1,0 +1,80 @@
+feature,area,priority,original,clone,notes
+MPIN login with 6 digit boxes,Auth,must,yes,no,S01 observed in boards. Rules (lockout/auto-submit) are our own.
+Username/password login,Auth,must,yes,no,S02 seen in before frame only.
+Forgot MPIN / forgot password link,Auth,should,yes,no,Link seen. Flow unknown.
+Pre-login balance peek,Auth,could,yes,no,S03 collapsed card seen. Expanded state unknown.
+Quick Pay floating button (pre-login),Auth,could,yes,no,Button seen. Destination unknown.
+Login error / lockout states,Auth,must,unknown,no,Not observed. Required for production polish.
+Logout,Auth,must,yes,no,Exit icon in home header (video).
+Greeting header with avatar initials,Home,must,yes,no,Video + boards.
+Balance card with hide/show eye,Home,must,yes,no,Boards (privacy note) + video.
+Balance refresh icon,Home,should,yes,no,Video tile.
+Account tiles carousel (accounts/deposits/loans),Home,must,yes,no,Video. Horizontal scroll with peek of next tile.
+Quick Actions row,Home,must,yes,no,Boards: Scan & Pay / Cash / Pay Contact / Request.
+Banking Services grid,Home,must,yes,no,Boards: 8 categorized tiles.
+Story chips row,Home,could,yes,no,Video. Use original content.
+Home tabs Banking/Lifestyle/Rewards,Home,should,yes,no,Video. Lifestyle and Rewards content unknown.
+Payments & Transfers tab strip,Home,should,yes,no,Video: UPI / Fund Transfer / Bills / Cash.
+Promo strip (dismissible),Home,could,yes,no,Video credit-card strip. Use original copy.
+Header search,Home,could,yes,no,Icon only.
+Notifications bell,Home,could,yes,no,Icon only. Screen unknown.
+Bottom navigation (5 items),Navigation,must,yes,no,Two variants observed. Decide per U1.
+Raised center Scan QR button,Navigation,could,yes,no,Video variant only.
+Back navigation chevron,Navigation,must,yes,no,Every pushed screen.
+Transactions list,Transactions,must,yes,no,S12. Rows: channel tag / description / date / amount+arrow / running balance.
+Group by date headers,Transactions,must,yes,no,Month headers (video) or day headers (boards). Choose one.
+Account selector with balance,Transactions,must,yes,no,Dropdown with eye toggle.
+Search transactions,Transactions,must,yes,no,Search box seen. Matching rules assumed.
+Filter transactions,Transactions,should,yes,no,Icon only. Fields unknown.
+Sort transactions,Transactions,should,yes,no,Icon (video) and Sort By chip (boards).
+Duration bottom sheet,Transactions,must,yes,no,S13: Last 20 / Current Month / Last Month / Last 3 Months / Custom.
+Custom date range,Transactions,should,yes,no,Option seen. Picker unknown.
+Request statement,Transactions,should,yes,no,Pill only. Flow unknown.
+Spend analysis tab,Transactions,could,yes,no,Tab label only.
+Transactions empty state,Transactions,must,unknown,no,Not observed.
+Transactions loading skeleton,Transactions,should,unknown,no,Assumed.
+Fund transfer method list,Transfer,must,yes,no,S19: Quick / Bank Account / My account / MMID.
+Beneficiary form (name/account/confirm/IFSC/nickname),Transfer,must,yes,no,S20.
+Within bank vs other bank toggle,Transfer,must,yes,no,S20.
+IFSC search,Transfer,should,yes,no,Link seen in before frame.
+Account number match validation,Transfer,must,yes,no,Confirm field implies. Messages assumed.
+Amount entry with limit and balance checks,Transfer,must,yes,no,Limit line seen. Value unclear (25k vs 50k).
+Source account select,Transfer,must,yes,no,S21.
+Purpose select,Transfer,should,yes,no,S21.
+Send ₹1 test amount option,Transfer,could,yes,no,Checkbox seen.
+6-digit transaction PIN,Transfer,must,yes,no,S22.
+Amount in words,Transfer,should,yes,no,S22 and S23.
+Transfer charges display,Transfer,should,yes,no,S22. Rule unknown.
+Transfer success screen,Transfer,must,yes,no,S23.
+Share screenshot of receipt,Transfer,could,yes,no,Button seen.
+Transfer failure screen,Transfer,must,unknown,no,Not observed.
+Deposits overview with combined value,Deposits,should,yes,no,S24.
+Fixed deposit list row,Deposits,should,yes,no,S24.
+Fixed deposit details,Deposits,should,yes,no,S25: tiles + overview grid + interest/maturity.
+Lien/hold info banner,Deposits,could,yes,no,Conditional on lien.
+FD overview actions (info/statement/mail/download),Deposits,could,yes,no,Icons only.
+Manage nominee view,Deposits,could,yes,no,S26.
+Edit nominee,Deposits,could,yes,no,Button seen. Form unknown.
+Open new deposit,Deposits,could,yes,no,Button only. Stub or simple form.
+Deposit requests,Deposits,could,yes,no,Button only.
+Loan details,Loans,could,yes,no,CTA and tile only.
+Services: recharge and bills grid,Services,should,yes,no,S08.
+Travel & bookings section,Services,could,yes,no,S08 header only.
+UPI hub,UPI,should,yes,no,S09: Register / Scan QR / Pay Contact / Approve / Request Money.
+Activate UPI ID strip,UPI,could,yes,no,Video strip.
+Cards screen with card visual,Cards,should,yes,no,S10.
+Card management actions,Cards,could,yes,no,Block / PIN / Virtual / Link icons only.
+Favorites,Navigation,could,yes,no,Label only.
+Insurance,Navigation,could,yes,no,Label only.
+Investments,Navigation,could,yes,no,Label only.
+Settings,Settings,should,yes,no,Label only.
+Seed data store (accounts/transactions/deposits),Platform,must,no,no,Synthetic data only. Never reuse names or numbers from the recording.
+Demo-mode indicator,Platform,must,no,no,Clone-specific. Makes clear nothing is real.
+Safe-area and iPhone 14 Pro layout (393x852),Platform,must,yes,no,Required by user.
+Responsive layout down to 320px and up to desktop column,Platform,must,unknown,no,Assumed.
+Page-push and bottom-sheet animations,Platform,must,yes,no,Observed qualitatively. Timings unknown.
+Accessibility (labels / focus / contrast / reduced motion),Platform,must,unknown,no,Not observable. Required.
+Real bank integration,Out of scope,skip,yes,no,Regulated and owned by the bank.
+Real UPI/IMPS/NEFT rails,Out of scope,skip,yes,no,Payment networks.
+Bank branding / logos / illustrations / promo copy,Out of scope,skip,yes,no,Proprietary. Use original assets.
+Real OTP / device binding / fraud checks,Out of scope,skip,yes,no,Replace with demo PIN.

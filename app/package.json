@@ -1,0 +1,23 @@
+{
+  "name": "demobank-mobile",
+  "version": "1.0.0",
+  "private": true,
+  "description": "DemoBank: a demo mobile banking web app (Next.js App Router). All data is local and synthetic.",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "test:e2e": "playwright test",
+    "preview:build": "node tools/harness/build.mjs",
+    "preview:serve": "node tools/harness/serve.mjs"
+  },
+  "dependencies": {
+    "next": "^15.5.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.56.0",
+    "esbuild": "^0.28.0"
+  }
+}

@@ -1,0 +1,100 @@
+/* Design tokens, estimated from the reference video (see replica/video-analysis/design-tokens.md). */
+:root {
+  /* colors */
+  --color-bg: #ffffff;
+  --color-bg-soft: #f4f5f9;
+  --color-band: #ececf1;
+  --color-surface-tile: #e6e4ee;
+  --color-banner: #dcdce6;
+  --color-text: #1d1b2b;
+  --color-text-muted: #6b6a78;
+  --color-divider: #d9d8e0;
+  --color-magenta: #98195a;
+  --color-magenta-dark: #6c0f47;
+  --color-indigo: #3a2c96;
+  --color-indigo-dark: #2a1a78;
+  --color-blue: #2d44d9;
+  --color-blue-light: #3f5be8;
+  --color-cta: #2a1c7e;
+  --color-fab: #2a2471;
+  --color-link: #2b3fcf;
+  --color-debit: #d4352f;
+  --color-credit: #1f9d57;
+  --color-danger: #d4352f;
+  --color-success: #1f9d57;
+  --color-teal: #12a8c7;
+  --color-spinner: #2a2471;
+  --color-login-1: #a3205c;
+  --color-login-2: #5a1a8f;
+  --color-login-3: #2a1263;
+
+  /* typography */
+  --font-sans: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+
+  /* spacing (4px base) */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --gutter: 16px;
+
+  /* radii */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-pill: 999px;
+
+  /* dimensions */
+  --device-w: 393px;
+  --device-h: 852px;
+  --statusbar-h: 54px;
+  --topbar-h: 56px;
+  --tabbar-h: 64px;
+  --tile-w: 245px;
+  --tile-h: 178px;
+  --fab-size: 56px;
+
+  /* shadows */
+  --shadow-nav: 0 -2px 12px rgba(20, 16, 60, 0.08);
+  --shadow-tile: 0 6px 16px rgba(60, 20, 90, 0.18);
+  --shadow-sheet: 0 -8px 30px rgba(10, 20, 90, 0.35);
+  --shadow-fab: 0 6px 14px rgba(42, 36, 113, 0.45);
+  --shadow-device: 0 30px 80px rgba(30, 20, 80, 0.28), 0 0 0 10px #0d0b16, 0 0 0 11px #2b2840;
+
+  /* motion */
+  --ease-sheet-in: cubic-bezier(0.2, 0, 0, 1);
+  --ease-sheet-out: cubic-bezier(0.4, 0, 1, 1);
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --dur-fade: 150ms;
+  --dur-fade-content: 130ms;
+  --dur-sheet-in: 220ms;
+  --dur-sheet-out: 200ms;
+
+  /* layering */
+  --z-tabs: 15;
+  --z-header: 20;
+  --z-nav: 30;
+  --z-fab: 31;
+  --z-overlay: 60;
+  --z-sheet: 61;
+  --z-dialog: 70;
+  --z-toast: 80;
+
+  /* breakpoints (documentation only; CSS custom properties cannot be used in media queries) */
+  --bp-phone: 430px;
+
+  /* safe areas: real devices use env(); the wide-screen device frame simulates them */
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+@media (min-width: 431px) {
+  :root {
+    --safe-top: var(--statusbar-h);
+    --safe-bottom: 20px;
+  }
+}

@@ -1,0 +1,219 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-text);
+  background: #e9e7f3;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+  text-rendering: optimizeLegibility;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul,
+ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-link);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.hide-scrollbar {
+  scrollbar-width: none;
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* ---------- device frame ---------- */
+.stage {
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.device {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  background: var(--color-bg);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+@media (min-width: 431px) {
+  .stage {
+    padding: 24px 0;
+  }
+  .device {
+    width: var(--device-w);
+    height: var(--device-h);
+    border-radius: 55px;
+    box-shadow: var(--shadow-device);
+  }
+}
+
+.statusbar {
+  display: none;
+}
+
+@media (min-width: 431px) {
+  .statusbar {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: var(--statusbar-h);
+    z-index: 90;
+    pointer-events: none;
+  }
+  .statusbar__time {
+    position: absolute;
+    left: 52px;
+    top: 19px;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: -0.2px;
+  }
+  .statusbar__island {
+    position: absolute;
+    left: 50%;
+    top: 11px;
+    width: 124px;
+    height: 36px;
+    margin-left: -62px;
+    background: #000;
+    border-radius: 20px;
+  }
+  .statusbar__icons {
+    position: absolute;
+    right: 34px;
+    top: 21px;
+    display: flex;
+    gap: 6px;
+    align-items: center;
+  }
+}
+
+/* ---------- screens ---------- */
+.screen {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-bg);
+  padding-top: var(--safe-top);
+  animation: screen-in var(--dur-fade) ease-out both;
+}
+
+@keyframes screen-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.screen__body {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+.fade-in {
+  animation: screen-in var(--dur-fade-content) ease-out both;
+}
+
+.splash {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: var(--color-bg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .spinner,
+  .spinner circle {
+    animation: pulse 1.2s ease-in-out infinite !important;
+    animation-iteration-count: infinite !important;
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 1;
+  }
+}
