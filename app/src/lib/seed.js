@@ -106,7 +106,7 @@ function buildTxns(accountId, rows, currentBalance) {
 }
 
 export function createSeed(now = new Date()) {
-  const savingsBalance = 2350.0; // ₹2,350 final balance
+  const savingsBalance = 2352.0; // ₹2,350 final balance
 
   const transactions = [
     ...buildTxns('a1', SAVINGS_ROWS, savingsBalance),

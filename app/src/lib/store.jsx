@@ -56,7 +56,7 @@ function loadData() {
         parsed &&
         parsed.version === 8 &&
         Array.isArray(parsed.accounts) &&
-        parsed.accounts[0]?.balance === 2350 &&
+        parsed.accounts[0]?.balance === 2352 &&
         parsed.nominees?.fd1?.list?.[0]?.name === 'Varsha Trivedi' &&
         parsed.transactions?.length >= 25
       ) {
@@ -218,16 +218,16 @@ export function AppProvider({ children }) {
       const newBeneficiaries = known
         ? current.beneficiaries
         : [
-            ...current.beneficiaries,
-            {
-              id: `b${stamp}`,
-              name: d.beneficiary.name,
-              account: d.beneficiary.account,
-              ifsc: d.beneficiary.ifsc,
-              nickname: d.beneficiary.nickname || '',
-              scope: d.mode,
-            },
-          ];
+          ...current.beneficiaries,
+          {
+            id: `b${stamp}`,
+            name: d.beneficiary.name,
+            account: d.beneficiary.account,
+            ifsc: d.beneficiary.ifsc,
+            nickname: d.beneficiary.nickname || '',
+            scope: d.mode,
+          },
+        ];
       // Transfer to another account of the same customer: credit it as well so both ledgers stay consistent.
       const dest = current.accounts.find((a) => a.number === d.beneficiary.account && a.id !== account.id);
       if (dest) {
