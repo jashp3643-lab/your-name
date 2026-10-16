@@ -27,7 +27,7 @@ export default function AccountsPage() {
     <Screen className="accts-screen" testId="accounts-screen">
       <TopBar title="Accounts" />
 
-      <div className="accts-screen__body">
+      <div className="accts-body">
         {/* Dark Purple Hero Section */}
         <div className="accts-hero">
           <div className="accts-hero__header">
@@ -42,12 +42,12 @@ export default function AccountsPage() {
           </div>
         </div>
 
-        {/* White Card Section */}
-        <div className="accts-card">
-          <div className="accts-card__type">{account.type}</div>
+        {/* White Panel - Edge-to-edge, flex-1 */}
+        <div className="accts-panel">
+          <div className="accts-panel__type">{account.type}</div>
 
-          <div className="accts-card__main-row">
-            <div className="accts-card__acct-num">
+          <div className="accts-panel__main-row">
+            <div className="accts-panel__acct-num">
               <span>{showNumber ? account.number : maskAccount(account.number)}</span>
               <EyeToggle
                 revealed={showNumber}
@@ -58,7 +58,7 @@ export default function AccountsPage() {
 
             <Link
               href="/transactions"
-              className="accts-card__bal-link"
+              className="accts-panel__bal-link"
               aria-label={`View transactions, balance ${formatINR(account.balance)}`}
             >
               <span>{formatINR(account.balance)}</span>
@@ -66,30 +66,33 @@ export default function AccountsPage() {
             </Link>
           </div>
 
-          <div className="accts-card__actions">
+          <div className="accts-panel__actions">
             <button
               type="button"
-              className="accts-card__link-btn"
+              className="accts-panel__link-btn"
               onClick={() => setSheet('tech-error')}
             >
               Apply for a New Savings Account
             </button>
             <button
               type="button"
-              className="accts-card__link-btn"
+              className="accts-panel__link-btn"
               onClick={() => setSheet('tech-error')}
             >
               Apply for a New Current Account
             </button>
             <button
               type="button"
-              className="accts-card__link-btn"
+              className="accts-panel__link-btn"
               onClick={() => setSheet('tech-error')}
             >
               Apply for Joint Savings Account
             </button>
           </div>
         </div>
+
+        {/* Bottom purple bar matching reference */}
+        <div className="accts-bottom-bar" />
       </div>
 
       {sheet === 'tech-error' ? (
