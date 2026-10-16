@@ -597,12 +597,185 @@
 .info__text { flex: 1; min-width: 0; display: flex; flex-direction: column; }
 .info__text b { font-size: 14px; font-weight: 600; }
 .info__text small { margin-top: 2px; font-size: 12px; line-height: 16px; color: var(--color-text-muted); }
-.acct-list { display: block; }
-.acct-card { margin-bottom: 14px; padding: 16px; border: 1px solid var(--color-divider); border-radius: 14px; background: #fff; box-shadow: 0 2px 8px rgba(20, 16, 60, 0.06); }
-.acct-card__top { display: flex; justify-content: space-between; align-items: center; gap: 8px; font-size: 13px; }
-.acct-card__top span { color: var(--color-text-muted); font-size: 12px; }
-.acct-card__bal { margin: 10px 0 2px; font-size: 26px; font-weight: 700; }
-.acct-card small { display: block; font-size: 11px; color: var(--color-text-muted); margin-bottom: 8px; }
+/* ===== accounts screen (YONO SBI reference match) ===== */
+.accts-screen {
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow-y: auto;
+}
+.accts-screen .topbar {
+  background: #ffffff;
+  color: #1a1824;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+.accts-screen .topbar__title {
+  color: #1a1824;
+  font-size: 17px;
+  font-weight: 600;
+}
+.accts-screen__body {
+  flex: 1;
+  padding: 16px 14px calc(var(--safe-bottom) + 32px);
+  background: #180633;
+  min-height: calc(100% - var(--topbar-h));
+  display: flex;
+  flex-direction: column;
+}
+.accts-hero {
+  position: relative;
+  padding: 8px 6px 16px;
+  color: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.accts-hero::after {
+  content: '';
+  position: absolute;
+  top: -24px;
+  right: -36px;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(105, 45, 178, 0.48) 0%, rgba(62, 22, 110, 0.22) 65%, transparent 100%);
+  pointer-events: none;
+}
+.accts-hero__header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.accts-hero__label {
+  font-size: 12.5px;
+  color: rgba(255, 255, 255, 0.76);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+.accts-hero__badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+  font-size: 10.5px;
+  font-weight: 600;
+}
+.accts-hero__name {
+  margin: 6px 0 16px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #ffffff;
+  letter-spacing: 0.01em;
+}
+.accts-hero__balance-box {
+  margin-top: 4px;
+}
+.accts-hero__bal-label {
+  display: block;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.74);
+  font-weight: 400;
+}
+.accts-hero__bal-amt {
+  margin-top: 5px;
+  font-size: 29px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+}
+
+/* White Card */
+.accts-card {
+  margin-top: 14px;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 22px 18px 36px;
+  box-shadow: 0 4px 22px rgba(0, 0, 0, 0.22);
+}
+.accts-card__type {
+  font-size: 14px;
+  font-weight: 500;
+  color: #23212d;
+  margin-bottom: 12px;
+}
+.accts-card__main-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 8px;
+}
+.accts-card__acct-num {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #2b2838;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.accts-card__acct-num .eye-btn {
+  background: none;
+  border: none;
+  padding: 2px;
+  color: #4b485c;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+}
+.accts-card__acct-num .eye-btn svg {
+  width: 17px;
+  height: 17px;
+}
+.accts-card__bal-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #211f2d;
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: opacity 0.15s ease;
+}
+.accts-card__bal-link:hover {
+  opacity: 0.8;
+}
+.accts-card__bal-link svg {
+  width: 15px;
+  height: 15px;
+  stroke-width: 2.2;
+  color: #4b485c;
+}
+
+/* Action Links inside Card */
+.accts-card__actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  margin-top: 48px;
+  padding-bottom: 6px;
+}
+.accts-card__link-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  color: #21387d;
+  font-size: 13.5px;
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+  text-align: center;
+  transition: color 0.15s ease;
+}
+.accts-card__link-btn:hover {
+  color: #12214c;
+}
 .notif-list { display: block; }
 .notif { padding: 14px 4px; border-bottom: 1px solid var(--color-divider); }
 .notif.is-unread { padding-left: 12px; border-left: 3px solid var(--color-magenta); background: #fbf6f9; }

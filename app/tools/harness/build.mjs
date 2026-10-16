@@ -106,7 +106,7 @@ createRoot(document.getElementById('root')).render(
 `;
 fs.writeFileSync(path.join(genDir, 'entry.jsx'), entry);
 
-fs.rmSync(outDir, { recursive: true, force: true });
+fs.mkdirSync(outDir, { recursive: true });
 await build({
   entryPoints: [path.join(genDir, 'entry.jsx')],
   outdir: outDir,
